@@ -6,8 +6,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-import Modelo.Disciplina;
-import Modelo.Livro;
+import Modelo.DisciplinaImplementador;
 
 
 public class ServicoDeLivros {
@@ -20,7 +19,7 @@ public class ServicoDeLivros {
     private final JsonParser parser = new JsonParser();
 
     // Método que recupera os estudantes como uma lista de objetos Estudante
-    public List<Disciplina> obterDisciplina() {
+    public List<DisciplinaImplementador> obterDisciplina() {
         // Constrói a solicitação HTTP GET para o endpoint
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))

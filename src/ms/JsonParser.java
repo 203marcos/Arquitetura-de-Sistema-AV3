@@ -4,56 +4,56 @@ package ms;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import Modelo.Aluno;
-import Modelo.Disciplina;
-import Modelo.Livro;
+import Modelo.AlunoImplementador;
+import Modelo.DisciplinaImplementador;
+import Modelo.LivroImplementador;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class JsonParser {
 
-    public List<Aluno> parse(String responseBody) {
+    public List<AlunoImplementador> parse(String responseBody) {
     	
         JSONArray alunosArray = new JSONArray(responseBody);
-        List<Aluno> alunos = new ArrayList<>();
+        List<AlunoImplementador> alunoImplementadors = new ArrayList<>();
 
         for (int i = 0; i < alunosArray.length(); i++) {
             JSONObject alunoObj = alunosArray.getJSONObject(i);
-            Aluno aluno = new Aluno(
+            AlunoImplementador alunoImplementador = new AlunoImplementador(
                     alunoObj.getInt("id"),
                     alunoObj.getString("nome"),
                     alunoObj.getString("curso"),
                     alunoObj.getString("modalidade"),
                     alunoObj.getString("status")
             );
-            alunos.add(aluno);
+            alunoImplementadors.add(alunoImplementador);
         }
 
-        return alunos;
+        return alunoImplementadors;
     }
 
-    public List<Disciplina> parse2(String responseBody) {
+    public List<DisciplinaImplementador> parse2(String responseBody) {
 
         JSONArray disciplinasArray = new JSONArray(responseBody);
-        List<Disciplina> disciplinas = new ArrayList<>();
+        List<DisciplinaImplementador> disciplinaImplementadors = new ArrayList<>();
 
         for (int i = 0; i < disciplinasArray.length(); i++) {
             JSONObject disciplinasObj = disciplinasArray.getJSONObject(i);
-            Disciplina disciplina = new Disciplina(
+            DisciplinaImplementador disciplinaImplementador = new DisciplinaImplementador(
                     disciplinasObj.getInt("id"),
                     disciplinasObj.getString("curso"),
                     disciplinasObj.getString("nome")
             );
-            disciplinas.add(disciplina);
+            disciplinaImplementadors.add(disciplinaImplementador);
         }
 
-        return disciplinas;
+        return disciplinaImplementadors;
     }
 
-    public List<Livro> parse3(String responseBody) {
+    public List<LivroImplementador> parse3(String responseBody) {
         JSONArray livrosArray = new JSONArray(responseBody);
-        List<Livro> livros = new ArrayList<>();
+        List<LivroImplementador> livroImplementadors = new ArrayList<>();
 
         for (int i = 0; i < livrosArray.length(); i++) {
             JSONObject livrosObj = livrosArray.getJSONObject(i);
@@ -71,17 +71,17 @@ public class JsonParser {
             }
 
 
-            Livro livro = new Livro(
+            LivroImplementador livroImplementador = new LivroImplementador(
                     livrosObj.getInt("id"),
                     livrosObj.getString("titulo"),
                     livrosObj.getString("autor"),
                     livrosObj.getInt("ano"),
                     disponivel
             );
-            livros.add(livro);
+            livroImplementadors.add(livroImplementador);
         }
 
-        return livros;
+        return livroImplementadors;
     }
 
 

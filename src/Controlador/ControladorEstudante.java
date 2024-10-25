@@ -1,26 +1,26 @@
 package Controlador;
 
-import Modelo.Aluno;
+import Modelo.AlunoImplementador;
 import Visao.VisaoEstudante;
 
 import java.util.List;
 
 public class ControladorEstudante {
-    private List<Aluno> listaDeEstudantes;
+    private List<AlunoImplementador> listaDeEstudantes;
     private VisaoEstudante visao;
 
-    public ControladorEstudante(List<Aluno> listaDeEstudantes){
+    public ControladorEstudante(List<AlunoImplementador> listaDeEstudantes){
         this.listaDeEstudantes = listaDeEstudantes;
         this.visao = new VisaoEstudante(this);
     }
 
     public void procuraCurso(String curso){
 
-        for (Aluno estudante : listaDeEstudantes) {
-            Aluno alunoEncontrado = estudante.listarCurso(curso);
+        for (AlunoImplementador estudante : listaDeEstudantes) {
+            AlunoImplementador alunoImplementadorEncontrado = estudante.listarCurso(curso);
 
-            if (alunoEncontrado != null) {
-                visao.exibeDetalhesEstudante(alunoEncontrado);
+            if (alunoImplementadorEncontrado != null) {
+                visao.exibeDetalhesEstudante(alunoImplementadorEncontrado);
             }
 
         }
@@ -28,11 +28,11 @@ public class ControladorEstudante {
     }
 
     public void procuraId(Integer id){
-        for (Aluno estudante : listaDeEstudantes) {
-            Aluno alunoEncontrado = estudante.listarId(id);
+        for (AlunoImplementador estudante : listaDeEstudantes) {
+            AlunoImplementador alunoImplementadorEncontrado = estudante.listarId(id);
 
-            if (alunoEncontrado != null) {
-                visao.exibeDetalhesEstudante(alunoEncontrado);
+            if (alunoImplementadorEncontrado != null) {
+                visao.exibeDetalhesEstudante(alunoImplementadorEncontrado);
             }
 
         }

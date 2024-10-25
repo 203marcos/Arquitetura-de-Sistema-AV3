@@ -1,10 +1,8 @@
 package Visao;
 
 import Controlador.ControladorEstudante;
-import Modelo.Aluno;
-import Modelo.Livro;
+import Modelo.AlunoImplementador;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class VisaoEstudante {
@@ -24,8 +22,8 @@ public class VisaoEstudante {
         controlador.procuraId(captura.nextInt());
     }
 
-    public void exibeDetalhesEstudante(Aluno aluno){
-        System.out.println(aluno);
+    public void exibeDetalhesEstudante(AlunoImplementador alunoImplementador){
+        System.out.println(alunoImplementador);
     }
 
 

@@ -7,7 +7,7 @@ import java.net.http.HttpResponse;
 import java.util.List;
 
 
-import Modelo.Aluno;
+import Modelo.AlunoImplementador;
 
 // Classe para encapsular a lógica de comunicação com o serviço de estudantes
 public class ServicoDeAlunos {
@@ -22,7 +22,7 @@ public class ServicoDeAlunos {
     private final JsonParser parser = new JsonParser();
 
     // Método que recupera os estudantes como uma lista de objetos Estudante
-    public List<Aluno> obterEstudantes() {
+    public List<AlunoImplementador> obterEstudantes() {
         // Constrói a solicitação HTTP GET para o endpoint
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
