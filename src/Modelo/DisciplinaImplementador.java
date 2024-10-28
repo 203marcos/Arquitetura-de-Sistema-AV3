@@ -9,6 +9,17 @@ public class DisciplinaImplementador extends Disciplina {
         super(id, curso, nome);
     }
 
+
+    public DisciplinaImplementador encontraDisiciplina(String nome){
+        if(super.getNome().equals(nome)){
+            return this;
+        }
+        return null;
+    }
+
+
+
+
     @Override
     public String toString() {
         return "Disciplina{" +

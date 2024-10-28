@@ -1,11 +1,14 @@
 package Main;
 
+import Controlador.ControladorDisciplina;
 import Controlador.ControladorEstudante;
 import ConsumoApis.ConsumidorAPIDisciplina;
 import ConsumoApis.ConsumidorAPILivro;
 import Controlador.ControladorEstudanteDisciplina;
 import Visao.VisaoEstudante;
+import Visao.VisaoDisciplina;
 import ConsumoApis.ConsumidorAPIAluno;
+import Visao.VisaoEstudanteDisciplina;
 
 import java.util.Scanner;
 
@@ -22,9 +25,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int opcao;
 
+        //Aluno
         ControladorEstudante controladorEstudante = new ControladorEstudante(apiAluno.devolverListaEstudantes());
         VisaoEstudante visaoEstudante = new VisaoEstudante(controladorEstudante);
-
+        //Disciplina
+        ControladorDisciplina controladorDisciplina = new ControladorDisciplina(apiDisciplina.devolverListaDisciplina());
+        VisaoDisciplina visaoDisciplina = new VisaoDisciplina(controladorDisciplina);
+        //Aluno e Disciplina
+        ControladorEstudanteDisciplina controladorEstudanteDisciplina = new ControladorEstudanteDisciplina(controladorEstudante,controladorDisciplina);
+        VisaoEstudanteDisciplina visaoEstudanteDisciplina = new VisaoEstudanteDisciplina(controladorEstudanteDisciplina);
 
         do {
             // Exibe o menu
@@ -32,8 +41,8 @@ public class Main {
             System.out.println("1 - Listar todos os estudantes do curso de \"História\" na modalidade presencial.");
             System.out.println("2 - Ver detalhes de um estudante específico (pesquisa por ID ou Nome).");
             System.out.println("3 - Permitir que um estudante com status ativo na modalidade presencial se matricule em uma disciplina de acordo com a oferta do curso de \"História\".");
-            System.out.println("4 - Opção 4");
-            System.out.println("5 - Opção 5");
+            System.out.println("4 - Listar todas as disciplinas em que um estudante está devidamente matriculado.");
+            System.out.println("5 - Remover uma disciplina da matrícula do aluno.");
             System.out.println("6 - Opção 6");
             System.out.println("7 - Opção 7");
             System.out.println("8 - Opção 8");
@@ -55,12 +64,17 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Você escolheu a Opção 3");
+                    //Escolher a disciplina ofertada... História Medieval/História do Brasil Colônia
+                    visaoEstudanteDisciplina.matricularEstudante();
                     break;
                 case 4:
                     System.out.println("Você escolheu a Opção 4");
+                    //MOSTRAR AS DISCIPLINAS DO NUMERO 1
+                    visaoEstudante.exibeDisciplinasCursada();
                     break;
                 case 5:
                     System.out.println("Você escolheu a Opção 5");
+                    visaoEstudante.excluirDisciplina();
                     break;
                 case 6:
                     System.out.println("Você escolheu a Opção 6");

@@ -26,6 +26,28 @@ public class VisaoEstudante {
         System.out.println(alunoImplementador);
     }
 
+    public void exibeDisciplinasCursada(){
+        System.out.println("DIGITE A ID DO ESTUDANTE");
+        controlador.listarDisciplinas(captura.nextInt());
+        System.out.println("DISCIPLINAS CURSADAS");
+        captura.nextLine();
+    }
+
+    public void excluirDisciplina(){
+        System.out.println("ESCREVA O NOME DO CURSO PARA EXCLUSÃO");
+        String nome = captura.nextLine();
+        System.out.println("ESCREVA A ID DO ESTUDANTE");
+        int id = captura.nextInt();
+
+
+        controlador.removerMatricula(id,nome);
+
+    }
+
+
+
+
+
 
 
 
