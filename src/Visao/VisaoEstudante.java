@@ -1,7 +1,6 @@
 package Visao;
 
 import Controlador.ControladorEstudante;
-import Modelo.AlunoImplementador;
 import ModeloAbstrato.Aluno;
 
 import java.util.Scanner;

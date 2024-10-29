@@ -25,16 +25,6 @@ public class DisciplinaImplementador extends Disciplina {
         return null;
     }
 
-
-    @Override
-    public String toString() {
-        return "Disciplina{" +
-                "id=" + getId() +
-                ", curso='" + getCurso() + '\'' +
-                ", nome='" + getNome() + '\'' +
-                '}';
-    }
-
     @Override
     public void exibirDisciplina() {
         System.out.println(toString());

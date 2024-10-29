@@ -10,14 +10,13 @@ public class LivroImplementador extends Livro {
     }
 
     @Override
-    public String toString() {
-        return "Estudante{" +
-                "id=" + getId() +
-                ", titulo='" + getTitulo() + '\'' +
-                ", autor='" + getAutor() + '\'' +
-                ", ano='" + getAno() + '\'' +
-                ", disponivel='" + isStatus() + '\'' +
-                '}';
+    public LivroImplementador buscaTitulo(String titulo) {
+
+        if(super.getTitulo().equals(titulo)){
+            return this;
+        }
+
+        return null;
     }
 
     @Override

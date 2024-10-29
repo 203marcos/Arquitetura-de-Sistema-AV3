@@ -64,10 +64,10 @@ public class JsonParser {
                 continue; // Pula este objeto e continua com o próximo
             }
 
-            boolean disponivel = false;
+            boolean disponivel = true;
 
             if(!livrosObj.get("status").equals("null")){
-                disponivel = true;
+                disponivel = false;
             }
 
 

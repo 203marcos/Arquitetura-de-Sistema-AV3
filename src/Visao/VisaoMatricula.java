@@ -1,7 +1,6 @@
 package Visao;
 
 import Controlador.ControladorMatricula;
-
 import java.util.Scanner;
 
 public class VisaoMatricula {
@@ -13,7 +12,6 @@ public class VisaoMatricula {
         this.controlador = controlador;
     }
 
-
     public void matricular() {
         System.out.println("DIGITE O ID DO ESTUDANTE");
         int id = captura.nextInt();
@@ -22,7 +20,6 @@ public class VisaoMatricula {
         String curso = captura.nextLine();
         controlador.matricularAluno(id, curso);
     }
-
 
     public void listarDisciplinas(){
         System.out.println("DIGITE O ID DO ESTUDANTE");

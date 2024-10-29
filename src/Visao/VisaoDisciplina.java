@@ -13,8 +13,5 @@ public class VisaoDisciplina {
         this.controlador = controlador;
     }
 
-    public void matricula(){
-
-    }
 
 }

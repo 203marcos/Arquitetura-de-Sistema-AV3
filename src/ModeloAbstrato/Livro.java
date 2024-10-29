@@ -57,7 +57,20 @@ public abstract class Livro {
         this.status = status;
     }
 
-    // Método abstrato que deverá ser implementado pelas classes filhas
+
     public abstract void exibirDetalhes();
+
+    public abstract Livro buscaTitulo(String titulo);
+
+    @Override
+    public String toString() {
+        return "Estudante{" +
+                "id=" + getId() +
+                ", titulo='" + getTitulo() + '\'' +
+                ", autor='" + getAutor() + '\'' +
+                ", ano='" + getAno() + '\'' +
+                ", disponivel='" + isStatus() + '\'' +
+                '}';
+    }
 }
 

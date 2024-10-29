@@ -42,8 +42,15 @@ public abstract class Disciplina {
     public abstract DisciplinaImplementador encontraDisiciplinaNome(String nome);
     public abstract DisciplinaImplementador encontraDisiciplinaCurso(String curso);
 
-
-
     public abstract void exibirDisciplina();
+
+    @Override
+    public String toString() {
+        return "Disciplina{" +
+                "id=" + getId() +
+                ", curso='" + getCurso() + '\'' +
+                ", nome='" + getNome() + '\'' +
+                '}';
+    }
 }
 

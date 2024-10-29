@@ -1,9 +1,11 @@
 package Main;
 
+import Controlador.ControladorBiblioteca;
 import Controlador.ControladorEstudante;
 import ConsumoApis.ConsumidorAPIDisciplina;
 import ConsumoApis.ConsumidorAPILivro;
 import Controlador.ControladorMatricula;
+import Visao.VisaoBiblioteca;
 import Visao.VisaoEstudante;
 import ConsumoApis.ConsumidorAPIAluno;
 import Visao.VisaoMatricula;
@@ -29,6 +31,9 @@ public class Main {
         //Matricula
         ControladorMatricula controladorMatricula = new ControladorMatricula(controladorEstudante.getListaDeEstudantes(),apiDisciplina.devolverListaDisciplina());
         VisaoMatricula visaoMatricula = new VisaoMatricula(controladorMatricula);
+        //Biblioteca
+        ControladorBiblioteca controladorBiblioteca = new ControladorBiblioteca(controladorEstudante.getListaDeEstudantes(),apiLivro.devolverListaLivros());
+        VisaoBiblioteca visaoBiblioteca = new VisaoBiblioteca(controladorBiblioteca);
 
         do {
             // Exibe o menu
@@ -38,9 +43,9 @@ public class Main {
             System.out.println("3 - Permitir que um estudante com status ativo na modalidade presencial se matricule em uma disciplina de acordo com a oferta do curso de \"História\".");
             System.out.println("4 - Listar todas as disciplinas em que um estudante está devidamente matriculado.");
             System.out.println("5 - Remover uma disciplina da matrícula do aluno.");
-            System.out.println("6 - Opção 6");
-            System.out.println("7 - Opção 7");
-            System.out.println("8 - Opção 8");
+            System.out.println("6 - Permitir que um estudante com status ativo possa reservar um livro.");
+            System.out.println("7 - Listar todos os livros reservados pelo estudante.");
+            System.out.println("8 - Cancelar a reserva de um livro selecionado.");
             System.out.println("9 - Opção 9");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opção: ");
@@ -64,7 +69,6 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("Você escolheu a Opção 4");
-                    //MOSTRAR AS DISCIPLINAS DO NUMERO 1
                     visaoMatricula.listarDisciplinas();
                     break;
                 case 5:
@@ -73,15 +77,19 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Você escolheu a Opção 6");
+                    visaoBiblioteca.reservarLivro();
                     break;
                 case 7:
                     System.out.println("Você escolheu a Opção 7");
+                    visaoBiblioteca.listarLivros();
                     break;
                 case 8:
                     System.out.println("Você escolheu a Opção 8");
+                    visaoBiblioteca.cancerlarReserva();
                     break;
                 case 9:
                     System.out.println("Você escolheu a Opção 9");
+//                    visaoBiblioteca.testes();
                     break;
                 case 0:
                     System.out.println("Saindo do programa...");
