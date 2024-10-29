@@ -16,21 +16,13 @@ public class ControladorDisciplina {
         this.visao = new VisaoDisciplina(this);
     }
 
-    public DisciplinaImplementador cursoDisciplinaOfertada (String nome){
 
-        for (DisciplinaImplementador curso : listaDeDisciplina) {
 
-            DisciplinaImplementador disciplinaImplementadorEncontrado = curso.encontraDisiciplina(nome);
-
-            if (disciplinaImplementadorEncontrado != null) {
-                System.out.println("ACHAMOS SEU CURSO");
-                disciplinaImplementadorEncontrado.exibirDisciplina();
-                return disciplinaImplementadorEncontrado;
-            }
-
-        }
-
-        return null;
+    public List<DisciplinaImplementador> getListaDeDisciplina() {
+        return listaDeDisciplina;
     }
 
+    public void setListaDeDisciplina(List<DisciplinaImplementador> listaDeDisciplina) {
+        this.listaDeDisciplina = listaDeDisciplina;
+    }
 }

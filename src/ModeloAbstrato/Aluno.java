@@ -1,5 +1,7 @@
 package ModeloAbstrato;
 
+import Modelo.AlunoImplementador;
+
 public abstract class Aluno {
     private int id;
     private String nome;
@@ -74,6 +76,23 @@ public abstract class Aluno {
 
     public void setIndiceAtual(int indiceAtual) {
         this.indiceAtual = indiceAtual;
+    }
+
+    public abstract Aluno buscarPorId(Integer id);
+    public abstract Aluno buscarPorCurso (String cursoProcurado);
+
+    public abstract Boolean ativoPresencial();
+
+
+    public String toString() {
+        // Utilizando os getters para acessar os atributos privados
+        return "Estudante{" +
+                "id=" + getId() +
+                ", nome='" + getNome() + '\'' +
+                ", curso='" + getCurso() + '\'' +
+                ", modalidade='" + getModalidade() + '\'' +
+                ", status='" + getStatus() + '\'' +
+                '}';
     }
 
 

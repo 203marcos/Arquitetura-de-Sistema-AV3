@@ -1,5 +1,7 @@
 package ModeloAbstrato;
 
+import Modelo.DisciplinaImplementador;
+
 public abstract class Disciplina {
     private int id;
     private String curso;
@@ -37,10 +39,11 @@ public abstract class Disciplina {
         this.nome = nome;
     }
 
+    public abstract DisciplinaImplementador encontraDisiciplinaNome(String nome);
+    public abstract DisciplinaImplementador encontraDisiciplinaCurso(String curso);
 
 
 
-    // Método abstrato que deverá ser implementado pelas classes filhas
     public abstract void exibirDisciplina();
 }
 

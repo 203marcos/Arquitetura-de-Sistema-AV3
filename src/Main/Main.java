@@ -1,14 +1,12 @@
 package Main;
 
-import Controlador.ControladorDisciplina;
 import Controlador.ControladorEstudante;
 import ConsumoApis.ConsumidorAPIDisciplina;
 import ConsumoApis.ConsumidorAPILivro;
-import Controlador.ControladorEstudanteDisciplina;
+import Controlador.ControladorMatricula;
 import Visao.VisaoEstudante;
-import Visao.VisaoDisciplina;
 import ConsumoApis.ConsumidorAPIAluno;
-import Visao.VisaoEstudanteDisciplina;
+import Visao.VisaoMatricula;
 
 import java.util.Scanner;
 
@@ -28,12 +26,9 @@ public class Main {
         //Aluno
         ControladorEstudante controladorEstudante = new ControladorEstudante(apiAluno.devolverListaEstudantes());
         VisaoEstudante visaoEstudante = new VisaoEstudante(controladorEstudante);
-        //Disciplina
-        ControladorDisciplina controladorDisciplina = new ControladorDisciplina(apiDisciplina.devolverListaDisciplina());
-        VisaoDisciplina visaoDisciplina = new VisaoDisciplina(controladorDisciplina);
-        //Aluno e Disciplina
-        ControladorEstudanteDisciplina controladorEstudanteDisciplina = new ControladorEstudanteDisciplina(controladorEstudante,controladorDisciplina);
-        VisaoEstudanteDisciplina visaoEstudanteDisciplina = new VisaoEstudanteDisciplina(controladorEstudanteDisciplina);
+        //Matricula
+        ControladorMatricula controladorMatricula = new ControladorMatricula(controladorEstudante.getListaDeEstudantes(),apiDisciplina.devolverListaDisciplina());
+        VisaoMatricula visaoMatricula = new VisaoMatricula(controladorMatricula);
 
         do {
             // Exibe o menu
@@ -64,17 +59,17 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Você escolheu a Opção 3");
-                    //Escolher a disciplina ofertada... História Medieval/História do Brasil Colônia
-                    visaoEstudanteDisciplina.matricularEstudante();
+                    //Escolher a disciplina ofertada... História Medieval/História do Brasil Colônia/Geomorfologia
+                    visaoMatricula.matricular();
                     break;
                 case 4:
                     System.out.println("Você escolheu a Opção 4");
                     //MOSTRAR AS DISCIPLINAS DO NUMERO 1
-                    visaoEstudante.exibeDisciplinasCursada();
+                    visaoMatricula.listarDisciplinas();
                     break;
                 case 5:
                     System.out.println("Você escolheu a Opção 5");
-                    visaoEstudante.excluirDisciplina();
+                    visaoMatricula.removerDisciplina();
                     break;
                 case 6:
                     System.out.println("Você escolheu a Opção 6");
